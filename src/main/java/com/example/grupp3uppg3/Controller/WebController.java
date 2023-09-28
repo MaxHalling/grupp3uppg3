@@ -12,8 +12,21 @@ public class WebController {
     */
 
     @GetMapping("/hello/{name}")
-    public String helloName(@PathVariable String name) {
-        return "Hello, " + name;
+    public Respons helloName(@PathVariable String name) {
+        return new Respons(name);
+    }
+
+    public class Respons {
+
+        private String respons;
+
+        public Respons(String name) {
+            this.respons = "Hello, " + name;
+        }
+
+        public String getRespons() {
+            return respons;
+        }
     }
 
 }
